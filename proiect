@@ -219,7 +219,7 @@ if (moveMotor) {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("Returning Home...");
-      delay(500);
+      delay(50);
     }
 }
 if (moveToHome) {
