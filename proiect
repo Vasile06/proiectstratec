@@ -182,8 +182,8 @@ if (moveMotor) {
         rpm = (float)(encoderValueM * 60 / IMPULSURI_PER_ROTATIE);  
 
         e = RPM_d - rpm;
-        inte = inte_prev + (e * (currentMillis - t_prev)) / 2000.0;
-        float de = (e - e_prev) / ((currentMillis - t_prev) / 1000.0);
+        inte = inte_prev + (e * (currentMillis - t_prev)) / 200.0;
+        float de = (e - e_prev) / ((currentMillis - t_prev) / 100.0);
         float V = kp * e + ki * inte + kd * de;
 
         // Limităm tensiunea de control
@@ -230,7 +230,7 @@ if (moveToHome) {
         previousMillis = currentMillis;
 
         e_home = impulsuriHome - homeEncoderCount;
-        inte = inte_home + e_home * (currentMillis - t_prev) / 2000.0;  
+        inte = inte_home + e_home * (currentMillis - t_prev) / 200.0;  
         float V_home = kp_home * e_home + ki_home * inte_home ;
         V_home = constrain(V_home, -5.0, 5.0);
 
